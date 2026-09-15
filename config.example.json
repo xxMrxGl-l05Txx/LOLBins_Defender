@@ -26,7 +26,7 @@
   "api": {
     "host": "127.0.0.1",
     "port": 5000,
-    "enable_cors": true,
+    "enable_cors": false,
     "enable_rate_limiting": true,
     "rate_limit_per_minute": 100,
     "enable_authentication": false,

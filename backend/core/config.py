@@ -46,7 +46,7 @@ class APIConfig:
     """Configuration for API server"""
     host: str = "127.0.0.1"
     port: int = 5000
-    enable_cors: bool = True
+    enable_cors: bool = False
     enable_rate_limiting: bool = True
     rate_limit_per_minute: int = 100
     enable_authentication: bool = False
