@@ -92,7 +92,7 @@ EDITABLE_FIELDS = {
     },
 }
 
-SECRET_FIELDS = {'email_password', 'api_key'}
+SECRET_FIELDS = {'email_password', 'api_key', 'webhook_url'}
 LOG_LEVELS = {'DEBUG', 'INFO', 'WARNING', 'ERROR'}
 
 
