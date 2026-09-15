@@ -23,3 +23,16 @@ config.json
 # Generated runtime artifacts
 backend/alerting/alerts_log.json
 backend/reporting/reports/
+
+# Extra security / local artifacts
+.env*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.pem
+*.key
+*.zip
+.coverage
+coverage/
