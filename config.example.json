@@ -1,0 +1,40 @@
+{
+  "monitoring": {
+    "cpu_threshold": 80.0,
+    "memory_threshold": 80.0,
+    "disk_threshold": 90.0,
+    "network_threshold": 1000000,
+    "monitor_interval": 60,
+    "enable_lolbin_detection": true,
+    "enable_process_monitoring": true,
+    "enable_file_monitoring": true,
+    "enable_registry_monitoring": true
+  },
+  "alerting": {
+    "enable_email_alerts": false,
+    "enable_sms_alerts": false,
+    "enable_desktop_notifications": true,
+    "enable_webhook_alerts": false,
+    "alert_cooldown_seconds": 300,
+    "max_alerts_per_hour": 100,
+    "email_smtp_server": null,
+    "email_smtp_port": 587,
+    "email_username": null,
+    "email_password": null,
+    "webhook_url": null
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "port": 5000,
+    "enable_cors": true,
+    "enable_rate_limiting": true,
+    "rate_limit_per_minute": 100,
+    "enable_authentication": false,
+    "api_key": null
+  },
+  "log_level": "INFO",
+  "data_retention_days": 30,
+  "enable_auto_cleanup": true,
+  "backup_enabled": true,
+  "backup_interval_hours": 24
+}

@@ -1,0 +1,25 @@
+node_modules/
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Runtime data: database, logs and generated reports
+data/
+
+# Frontend build output
+dist/
+
+# Downloaded by install_as_service.bat
+nssm.exe
+
+# Local configuration / potential secrets
+config.json
+
+# Generated runtime artifacts
+backend/alerting/alerts_log.json
+backend/reporting/reports/

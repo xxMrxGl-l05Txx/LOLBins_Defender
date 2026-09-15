@@ -1,0 +1,2 @@
+# Backend dependencies are maintained in the project root requirements file
+-r ../requirements.txt

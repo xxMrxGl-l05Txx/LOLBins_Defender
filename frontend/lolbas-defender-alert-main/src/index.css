@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light theme: warm paper neutrals */
+  :root {
+    --background: 60 9% 97%;
+    --foreground: 220 14% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 10%;
+
+    --primary: 220 14% 12%;
+    --primary-foreground: 60 9% 98%;
+
+    --secondary: 60 5% 93%;
+    --secondary-foreground: 220 14% 12%;
+
+    --muted: 60 5% 93%;
+    --muted-foreground: 220 6% 40%;
+
+    --accent: 60 5% 92%;
+    --accent-foreground: 220 14% 12%;
+
+    --destructive: 358 70% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 60 5% 87%;
+    --input: 60 5% 83%;
+    --ring: 220 10% 45%;
+
+    --radius: 0.4rem;
+
+    --brand: 152 60% 34%;
+    --ok: 152 60% 34%;
+    --sev-critical: 358 72% 48%;
+    --sev-high: 22 88% 46%;
+    --sev-medium: 38 92% 40%;
+    --sev-low: 210 65% 45%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 14% 10%;
+    --sidebar-primary: 220 14% 12%;
+    --sidebar-primary-foreground: 60 9% 98%;
+    --sidebar-accent: 60 5% 93%;
+    --sidebar-accent-foreground: 220 14% 12%;
+    --sidebar-border: 60 5% 87%;
+    --sidebar-ring: 220 10% 45%;
+  }
+
+  /* Dark theme: graphite console */
+  .dark {
+    --background: 220 16% 5%;
+    --foreground: 220 10% 91%;
+
+    --card: 220 14% 7.5%;
+    --card-foreground: 220 10% 91%;
+
+    --popover: 220 14% 9%;
+    --popover-foreground: 220 10% 91%;
+
+    --primary: 220 10% 92%;
+    --primary-foreground: 220 16% 6%;
+
+    --secondary: 220 12% 12%;
+    --secondary-foreground: 220 10% 91%;
+
+    --muted: 220 12% 11%;
+    --muted-foreground: 220 8% 58%;
+
+    --accent: 220 12% 13%;
+    --accent-foreground: 220 10% 94%;
+
+    --destructive: 358 75% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 12% 15%;
+    --input: 220 12% 19%;
+    --ring: 220 10% 60%;
+
+    --brand: 152 58% 50%;
+    --ok: 152 58% 50%;
+    --sev-critical: 358 85% 64%;
+    --sev-high: 24 95% 60%;
+    --sev-medium: 42 92% 58%;
+    --sev-low: 208 85% 66%;
+
+    --sidebar-background: 220 14% 7.5%;
+    --sidebar-foreground: 220 10% 91%;
+    --sidebar-primary: 220 10% 92%;
+    --sidebar-primary-foreground: 220 16% 6%;
+    --sidebar-accent: 220 12% 13%;
+    --sidebar-accent-foreground: 220 10% 94%;
+    --sidebar-border: 220 12% 15%;
+    --sidebar-ring: 220 10% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background font-sans text-sm text-foreground;
+  }
+
+  ::selection {
+    background: hsl(var(--brand) / 0.28);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label-caps {
+    @apply text-2xs font-medium uppercase tracking-[0.08em] text-muted-foreground;
+  }
+}

@@ -1,0 +1,166 @@
+[
+    {
+      "binary": "powershell.exe",
+      "command_patterns": [
+        "-EncodedCommand",
+        "-enc",
+        "-e ",
+        "-ExecutionPolicy bypass",
+        "-ep bypass",
+        "-nop",
+        "-noprofile",
+        "-w hidden",
+        "-windowstyle hidden",
+        "downloadstring",
+        "IEX",
+        "Invoke-Expression",
+        "New-Object Net.WebClient",
+        "DownloadFile"
+      ],
+      "parent_process_hints": ["word.exe", "excel.exe", "outlook.exe", "winword.exe", "cmd.exe", "rundll32.exe", "regsvr32.exe", "wscript.exe", "mshta.exe"],
+      "mitre_attack_id": "T1059.001",
+      "description": "PowerShell execution with suspicious parameters indicating obfuscation, security bypassing, or downloading and executing remote code",
+      "mitre_link": "https://attack.mitre.org/techniques/T1059/001/"
+    },
+    {
+      "binary": "certutil.exe",
+      "command_patterns": [
+        "-urlcache",
+        "-decode",
+        "-encode",
+        "-ping",
+        "-verifyctl",
+        "-f ",
+        "http://",
+        "https://"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe"],
+      "mitre_attack_id": "T1105",
+      "description": "Certificate utility being abused to download, encode or decode files which could be malicious content",
+      "mitre_link": "https://attack.mitre.org/techniques/T1105/"
+    },
+    {
+      "binary": "regsvr32.exe",
+      "command_patterns": [
+        "/s",
+        "/u",
+        "/i:",
+        "scrobj.dll",
+        ".sct",
+        "http://",
+        "https://",
+        "javascript:"
+      ],
+      "parent_process_hints": ["powershell.exe", "cmd.exe", "word.exe", "excel.exe", "winword.exe", "rundll32.exe"],
+      "mitre_attack_id": "T1218.010",
+      "description": "Using Regsvr32 to execute malicious DLLs or COM scriptlets, potentially bypassing AppLocker",
+      "mitre_link": "https://attack.mitre.org/techniques/T1218/010/"
+    },
+    {
+      "binary": "rundll32.exe",
+      "command_patterns": [
+        "javascript:",
+        "http://",
+        "https://",
+        "advpack.dll,LaunchINFSection",
+        "shell32.dll,ShellExec_RunDLL",
+        "pcwutl.dll,LaunchApplication",
+        "dfshim.dll,ShOpenVerbApplication",
+        "shdocvw.dll,OpenURL",
+        "url.dll,FileProtocolHandler"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "winword.exe", "excel.exe", "outlook.exe"],
+      "mitre_attack_id": "T1218.011",
+      "description": "Using Rundll32 to execute malicious DLLs, JavaScript, or other code while bypassing security controls",
+      "mitre_link": "https://attack.mitre.org/techniques/T1218/011/"
+    },
+    {
+      "binary": "mshta.exe",
+      "command_patterns": [
+        ".hta",
+        "javascript:",
+        "vbscript:",
+        "http://",
+        "https://",
+        "about:"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "winword.exe", "excel.exe", "outlook.exe"],
+      "mitre_attack_id": "T1218.005",
+      "description": "Executing potentially malicious HTA files or scripts via Microsoft HTML Application Host",
+      "mitre_link": "https://attack.mitre.org/techniques/T1218/005/"
+    },
+    {
+      "binary": "wmic.exe",
+      "command_patterns": [
+        "process call create",
+        "process get",
+        "os get",
+        "shadowcopy delete",
+        "product call",
+        "/node:",
+        "process where"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe"],
+      "mitre_attack_id": "T1047",
+      "description": "Using WMI to execute commands, gather system information, or tamper with shadow copies for anti-recovery",
+      "mitre_link": "https://attack.mitre.org/techniques/T1047/"
+    },
+    {
+      "binary": "bitsadmin.exe",
+      "command_patterns": [
+        "/transfer",
+        "/addfile",
+        "/create",
+        "/SetNotifyCmdLine",
+        "/resume",
+        "http://",
+        "https://"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe"],
+      "mitre_attack_id": "T1197",
+      "description": "Using BITS to download malicious files or execute commands with potential for persistence",
+      "mitre_link": "https://attack.mitre.org/techniques/T1197/"
+    },
+    {
+      "binary": "msiexec.exe",
+      "command_patterns": [
+        "/q",
+        "/quiet",
+        "/i",
+        "http://",
+        "https://",
+        "/y"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe"],
+      "mitre_attack_id": "T1218.007",
+      "description": "Using Windows Installer to silently install or execute malicious packages",
+      "mitre_link": "https://attack.mitre.org/techniques/T1218/007/"
+    },
+    {
+      "binary": "sc.exe",
+      "command_patterns": [
+        "create",
+        "config",
+        "binpath=",
+        "start",
+        "delete",
+        "failure"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "wscript.exe"],
+      "mitre_attack_id": "T1543.003",
+      "description": "Creating or modifying Windows services for persistence or privilege escalation",
+      "mitre_link": "https://attack.mitre.org/techniques/T1543/003/"
+    },
+    {
+      "binary": "regasm.exe",
+      "command_patterns": [
+        "/quiet",
+        ".dll",
+        "/codebase"
+      ],
+      "parent_process_hints": ["cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe"],
+      "mitre_attack_id": "T1218.009",
+      "description": "Using .NET utilities to execute malicious assemblies while bypassing application whitelisting",
+      "mitre_link": "https://attack.mitre.org/techniques/T1218/009/"
+    }
+  ]

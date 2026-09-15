@@ -1,0 +1,16 @@
+{
+  "cpu_threshold": 80,
+  "memory_threshold": 80,
+  "disk_threshold": 90,
+  "network_threshold": 1000000,
+  "process_blacklist": ["malware.exe", "suspicious_process.exe"],
+  "file_watch_paths": [
+    {"path": "C:\\Windows\\System32", "recursive": false},
+    {"path": "C:\\Program Files", "recursive": true}
+  ],
+  "registry_watch_keys": [
+    "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+    "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
+  ],
+  "monitor_interval": 60
+}
